@@ -11,6 +11,10 @@
  * @method render 渲染日历
  * @method nextMonth 上一月
  * @method prevMonth 下一月
+ * @method show 显示日历
+ * @method hide 隐藏日历
+ * @method setSelectDate 设置当前选中日期
+
  * @customEvent selectDate 选择日期时派发事件
  * @customEvent show 显示日历时派发事件
  * @customEvent hide 隐藏日历时派发事件
@@ -237,7 +241,16 @@
              */
             selectDateName: '入住',
 
+            /**
+             * 是否显示节假日
+             * type {boolean}
+             */
             isShowHoliday: true,
+
+            /**
+             * 在日历中是否显示星期
+             * type {boolean}
+             */ 
             isShowWeek: true
         };
 
