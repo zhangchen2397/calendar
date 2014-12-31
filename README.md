@@ -91,6 +91,44 @@ this.defaultConfig = {
  */
  ```
 
+ ###日期操作相关方法
+ ```javascript
+ /**
+ * 根据当前年月，计算下一个月的年月
+ * @para year {int} eg: 2014 YYYY
+ * @para month {int} eg: 12 MM/M
+ * @return {object} 
+ */
+ util.getNextMonthDate( 2014, 12 );
+
+/**
+ * 处理小于10的数字前自动加0
+ * @para num {num} int
+ * return {string} '02'
+ */
+util.formatNum( 2 );
+
+/**
+ * 连接年月日，连接符为`-`
+ * return {string} yyyy-mm-dd
+ */
+util.joinDate( 2014, 12, 31 );
+
+/**
+ * 将格式化后日期转化为数字，便于日期计算
+ * @para date {string|date object} yyyy-mm-dd|日期对象
+ * return {string} yyyymmdd
+ */
+util.dateToNum( '2014-12-31' ),
+
+/**
+ * 格式化日期对象
+ * @para {date object} 日期对象
+ * return {string} yyyy-mm-dd
+ */
+util.formatDate( new Date );
+```
+
 ###组件初始化及使用示例
 ```javascript
 /**
@@ -130,7 +168,8 @@ this.defaultConfig = {
 
         /**
          * 设置当前选中日期
-         * @para {date object|date string} YYYY-MM-DD
+         * @para {date object|date string}
+         * 如date为日期字符串，格式为YYYY-MM-DD
          */
         calendarIns.setSelectDate( date );
     } );
