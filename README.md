@@ -128,17 +128,21 @@ this.defaultConfig = {
             date = event.date,
             dateName = event.dateName;
 
+        /**
+         * 设置当前选中日期
+         * @para {date object|date string} YYYY-MM-DD
+         */
         calendarIns.setSelectDate( date );
     } );
 
     $( '#prevMonth' ).on( 'click', function() {
+        //下一月，步长为初始化时的日历个数
         calendarIns.prevMonth();
     } );
 
     $( '#nextMonth' ).on( 'click', function() {
+        //上一月，步长为初始化时的日历个数
         calendarIns.nextMonth();
     } );
 } )();
 ```
-
-[点击查看更多demo](http://zhangchen2397.github.io/dialog/)
