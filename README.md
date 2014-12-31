@@ -7,11 +7,14 @@ calendar
 
 ![qr code](http://zhangchen2397.github.io/dialog/qr_code.png)
 
+![qr code](http://zhangchen2397.github.io/dialog/qr_code.png)
+
 ###组件主要功能
 1. 日历范围选择，不在范围内的日期置灰
 2. 节假日显示，可配置是否显示节假日
 3. 自由配置初始化生成多日历
 4. 各种操作事件自由监听，选择日期、显示、隐藏事件
+5. 对外提供日期操作的相关方法
 
 ###配置参数说明
 ```javascript
@@ -88,10 +91,22 @@ this.defaultConfig = {
  */
  ```
 
-###组件初始化及使用
+###组件初始化及使用示例
 ```javascript
+/**
+ * 该组件返回是一个对象，包含日期组件及对日期操作的相关方法
+ * {
+ *    calendar: calendar,
+ *    util: util
+ * }
+ */
+
 ( function() {
-    calendarIns = new calendar.calendar( {
+    var cal = calendar.calendar,
+        util = calendar.util;
+
+    //实例日历对象
+    calendarIns = new cal( {
         count: 4,
         selectDate: new Date(),
         selectDateName: '入住',
@@ -101,6 +116,13 @@ this.defaultConfig = {
         isShowWeek: false
     } );
 
+    /**
+     * 绑定选择日期后的事件
+     * event {type object}
+     * event.curItem 当前选中的dom对象
+     * event.date 当前选中的日期
+     * event.dateName 当前选中的日期对应的节假日，如没有则为空
+     */
     $.bind( calendarIns, 'afterSelectDate', function( event ) {
         var curItem = event.curItem,
             date = event.date,
