@@ -450,22 +450,24 @@
                 date = ( typeof date == 'string' ) ? date : util.formatDate( date ),
                 dateNum = util.dateToNum( date ),
 
-                lastSltItem = this.el.find( 'li.cur' );
+                lastSltItem = this.el.find( 'li.cur' ),
+                curSltItem = $( this.el[ 0 ].querySelector( 'li[data-date="' + date + '"]' ) );
 
+            //先移到上次选中日期高亮
             if ( lastSltItem.length ) {
-                var lastDateNameEl = $( lastSltItem.find( 'i' )[ 1 ] ),
+                var lastDateNameEl = $( lastSltItem.find( 'i' )[ 1 ] );
 
-                    curSltItem = $( this.el[ 0 ].querySelector( 'li[data-date="' + date + '"]' ) ),
-                    curDateNameEl = $( curSltItem.find( 'i' )[ 1 ] );
-
-                //先移到上次选中日期高亮
                 lastSltItem.removeClass( 'cur' );
                 if ( !lastSltItem.hasClass( 'jr' ) ) {
                     lastSltItem.removeClass( 'dl' );
                     lastDateNameEl.text( '' );
                 }
+            }
 
-                //添加当前选中日期高亮
+            //添加当前选中日期高亮
+            if ( curSltItem.length ) {
+                var curDateNameEl = $( curSltItem.find( 'i' )[ 1 ] );
+
                 curSltItem.addClass( 'cur' );
                 if ( !curSltItem.hasClass( 'jr' ) ) {
                     curSltItem.addClass( 'dl' );
