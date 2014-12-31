@@ -7,8 +7,6 @@ calendar
 
 ![qr code](http://zhangchen2397.github.io/calendar/demo/images/qr_code.png)
 
-![demo](http://zhangchen2397.github.io/calendar/demo/images/demo.png)
-
 ###组件主要功能
 1. 日历范围选择，不在范围内的日期置灰
 2. 节假日显示，可配置是否显示节假日
